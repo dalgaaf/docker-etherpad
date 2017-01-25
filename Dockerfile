@@ -2,10 +2,11 @@ FROM node:alpine
 MAINTAINER Danny Al-Gaaf "danny.al-gaaf@bisect.de"
 
 RUN apk add --no-cache --update \
+	curl \
 	gzip \
 	git \
 	python \
-	libssl-dev \
+	openssl-dev \
 	mysql-client \
     && rm -rf /var/cache/apk/*
 
