@@ -1,8 +1,13 @@
-FROM node:0.10
+MAINTAINER Danny Al-Gaaf "danny.al-gaaf@bisect.de"
+FROM node:alpine
 
-RUN apt-get update && \
-    apt-get install -y gzip git curl python libssl-dev mysql-client && \
-    rm -r /var/lib/apt/lists/*
+RUN apk add --no-cache --update \
+	gzip \
+	git \
+	python \
+	libssl-dev \
+	mysql-client \
+    && rm -rf /var/cache/apk/*
 
 RUN cd /opt && \
     git clone https://github.com/ether/etherpad-lite && \
