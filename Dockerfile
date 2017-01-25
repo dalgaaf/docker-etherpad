@@ -10,11 +10,10 @@ RUN apk add --no-cache --update \
 	mysql-client \
     && rm -rf /var/cache/apk/*
 
-RUN cd /opt && \
-    git clone https://github.com/ether/etherpad-lite && \
-    cd etherpad-lite && \
-    bin/installDeps.sh && \
-    rm settings.json
+RUN mkdir /opt && cd /opt
+RUN git clone https://github.com/ether/etherpad-lite
+RUN cd etherpad-lite && bin/installDeps.sh && rm settings.json
+RUN rm .git -rf
 
 COPY entrypoint.sh /entrypoint.sh
 VOLUME /opt/etherpad-lite/var
