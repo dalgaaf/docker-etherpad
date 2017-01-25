@@ -1,5 +1,5 @@
-MAINTAINER Danny Al-Gaaf "danny.al-gaaf@bisect.de"
 FROM node:alpine
+MAINTAINER Danny Al-Gaaf "danny.al-gaaf@bisect.de"
 
 RUN apk add --no-cache --update \
 	gzip \
